@@ -6,12 +6,36 @@ import Show from './../Show';
 
 const testShow = {
     //add in approprate test data structure here.
+    name: 'Stranger Things',  
+    summary: "A love letter to the '80s classics that captivated…rnatural forces and one very strange little girl.", 
+    seasons: [
+        {
+            id: 1,
+            name: 'season 1',
+            episodes: []
+        },
+        {
+            id: 2,
+            name: 'season 2',
+            episodes: []
+        },
+        {
+            id: 3,
+            name: 'season 3',
+            episodes: []
+        }
+    ]
 }
 
 test('renders testShow and no selected Season without errors', ()=>{
+    render(<Show />)
 });
 
 test('renders Loading component when prop show is null', () => {
+    render(<Show show={null}/>)
+    const loadingMessage = screen.queryByTestId('loading-container')
+
+    expect(loadingMessage).toBeInTheDocument()
 });
 
 test('renders same number of options seasons are passed in', ()=>{
